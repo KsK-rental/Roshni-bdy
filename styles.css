@@ -1,0 +1,109 @@
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s infinite;
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shayari-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(45deg, #f3e7e9, #e3eeff);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.shayari-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px #ff6f61;
+}
+
+.family-node, .friend-node {
+    transition: all 0.3s ease;
+}
+
+.family-node:hover, .friend-node:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    opacity: 0.9;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.dish-btn {
+    transition: transform 0.2s ease;
+}
+
+.dish-btn:hover {
+    transform: scale(1.1);
+}
+
+#quizResult {
+    transition: opacity 0.5s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    .shayari-card {
+        padding: 1rem;
+    }
+    .dish-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+    .family-node img, .friend-node img {
+        width: 100px;
+        height: 100px;
+    }
+    #memorySlider img {
+        height: 200px;
+    }
+}

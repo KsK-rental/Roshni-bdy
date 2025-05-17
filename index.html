@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Roshni! 🎉</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-gray-800 overflow-x-hidden">
+    <canvas id="canvas" class="fixed top-0 left-0 w-full h-full z-[-1]"></canvas>
+
+    <!-- Header Section -->
+    <section class="text-center py-10 bg-gradient-to-r from-pink-400 to-purple-500 text-white">
+        <h1 class="text-5xl md:text-7xl font-bold animate-bounce">Happy Birthday Roshni! 🎉</h1>
+        <p class="text-2xl md:text-4xl mt-4">26th May - Your Day, Your Sparkle! 🥳</p>
+    </section>
+
+    <!-- Music Player Section -->
+    <section class="max-w-4xl mx-auto my-10 text-center">
+        <h2 class="text-3xl font-semibold mb-6">A Special Song for You! 🎶</h2>
+        <audio id="birthdaySong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        <button id="playPauseBtn" class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition">Play Song</button>
+    </section>
+
+    <!-- Shayari Section -->
+    <section class="max-w-5xl mx-auto my-10">
+        <h2 class="text-3xl font-semibold text-center mb-8">Dil Se Dil Tak - Shayariyan 💖</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="shayari-card p-6 rounded-lg">
+                <p class="text-lg italic">"Teri hansi hai jaise chand ki chandni,<br>Har pal bikhre bas teri roshni.<br>Janamdin mubarak, meri pyari dost,<br>Khushiyan tere kadam chume, yahi hai rasta!"</p>
+            </div>
+            <div class="shayari-card p-6 rounded-lg">
+                <p class="text-lg italic">"Tu hai ek sapna, jo saja hai dil mein,<br>Tere bina adhuri si har mehfil mein.<br>Aaj tera din, saja hai phoolon se,<br>Roshni, tu hai hamari duniya ki roshni!"</p>
+            </div>
+            <div class="shayari-card p-6 rounded-lg">
+                <p class="text-lg italic">"Tere chehre ki muskaan hai anmol,<br>Har lamha tujhse saja hai gol.<br>Janamdin tera, ek anmol tohfa,<br>Dua hai tujhe mile sada khushiyon ka sohbat!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favorite Dish Quiz -->
+    <section class="max-w-4xl mx-auto my-10 text-center">
+        <h2 class="text-3xl font-semibold mb-6">Guess Roshni's Favorite Dish! 🍽️</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <button class="dish-btn bg-yellow-400 text-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition" data-dish="Dal Bati">Dal Bati</button>
+            <button class="dish-btn bg-yellow-400 text-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition" data-dish="Idli">Idli</button>
+            <button class="dish-btn bg-yellow-400 text-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition" data-dish="Alu Paratha">Alu Paratha</button>
+            <button class="dish-btn bg-yellow-400 text-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition" data-dish="Dal Chikoli">Dal Chikoli</button>
+        </div>
+        <p id="quizResult" class="hidden mt-6 text-xl"></p>
+    </section>
+
+    <!-- Family Tree Section -->
+    <section class="max-w-5xl mx-auto my-10">
+        <h2 class="text-3xl font-semibold text-center mb-8">Your Lovely Family 🌳</h2>
+        <div id="familySlider" class="relative">
+            <div class="family-node text-center">
+                <img src="img/papa.jpg" alt="Papa" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">Papa</p>
+                <button class="family-next bg-blue-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-blue-600 transition">Click Here!</button>
+            </div>
+            <div class="family-node text-center hidden">
+                <img src="img/mummy.jpg" alt="Mummy" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">Mummy</p>
+                <button class="family-next bg-blue-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-blue-600 transition">Click Here!</button>
+            </div>
+            <div class="family-node text-center hidden">
+                <img src="img/brother.jpg" alt="Brother" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">Brother</p>
+                <button class="family-next bg-blue-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-blue-600 transition">Click Here!</button>
+            </div>
+            <div class="family-node text-center hidden">
+                <img src="img/sister.jpg" alt="Sister" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">Sister</p>
+                <button class="family-next bg-blue-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-blue-600 transition">Click Here!</button>
+            </div>
+            <div id="familyTree" class="hidden text-center">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div><img src="img/papa.jpg" alt="Papa" class="w-24 h-24 rounded-full mx-auto"><p>Papa</p></div>
+                    <div><img src="img/mummy.jpg" alt="Mummy" class="w-24 h-24 rounded-full mx-auto"><p>Mummy</p></div>
+                    <div><img src="img/brother.jpg" alt="Brother" class="w-24 h-24 rounded-full mx-auto"><p>Yogesh (bhai)</p></div>
+                    <div><img src="img/sister.jpg" alt="Sister" class="w-24 h-24 rounded-full mx-auto"><p>kiran (sis)</p></div>
+                </div>
+                <p class="text-2xl mt-6 font-bold">Happy Family Forever! 🌟</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Friends Section -->
+    <section class="max-w-5xl mx-auto my-10">
+        <h2 class="text-3xl font-semibold text-center mb-8">Your Awesome Friends 👯</h2>
+        <div id="friendSlider" class="relative">
+            <div class="friend-node text-center">
+                <img src="img/bhavna.jpg" alt="Friend 1" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">Bhavna</p>
+                <button class="friend-next bg-purple-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-purple-600 transition">Click Here!</button>
+            </div>
+            <div class="friend-node text-center hidden">
+                <img src="img/archana.jpg" alt="Friend 2" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">Archana</p>
+                <button class="friend-next bg-purple-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-purple-600 transition">Click Here!</button>
+            </div>
+            <div class="friend-node text-center hidden">
+                <img src="img/rajni.jpg" alt="Friend 3" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">rajni</p>
+                <button class="friend-next bg-purple-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-purple-600 transition">Click Here!</button>
+            </div>
+            <div class="friend-node text-center hidden">
+
+
+                <img src="img/vijay.jpg" alt="Friend 4" class="w-32 h-32 rounded-full mx-auto">
+                <p class="text-xl mt-4">vijay</p>
+                <button class="friend-next bg-purple-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-purple-600 transition">Click Here!</button>
+            </div>
+            <div id="friendCircle" class="hidden text-center">
+                <div class="flex justify-center items-center space-x-4">
+                    <div><img src="img/bhavna.jpg" alt="Friend 1" class="w-24 h-24 rounded-full"><p>bhavna</p></div>
+                    <div><img src="img/archana.jpg" alt="Friend 2" class="w-24 h-24 rounded-full"><p>archana</p></div>
+                    <div><img src="img/rajni.jpg" alt="Friend 3" class="w-24 h-24 rounded-full"><p>rajni</p></div>
+                    <div><img src="img/vijay.jpg" alt="Friend 4" class="w-24 h-24 rounded-full"><p>vijay</p></div>
+                </div>
+                <p class="text-2xl mt-6 font-bold">Besties Forever! 💖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="max-w-4xl mx-auto my-10 text-center">
+        <h2 class="text-3xl font-semibold mb-6">A Surprise for You! 🎁</h2>
+        <button id="surpriseBtn" class="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition">Click Here!</button>
+        <p id="surpriseText" class="hidden mt-6 text-xl">Roshni, you're the light of our world! Here's your virtual cake! 🎂</p>
+        <img id="surpriseImg" src="https://via.placeholder.com/300?text=Cake" alt="Birthday Cake" class="hidden mx-auto mt-4 rounded-lg">
+    </section>
+
+    <!-- Video Message Section -->
+    <section class="max-w-4xl mx-auto my-10 text-center">
+        <h2 class="text-3xl font-semibold mb-6">A Message from Your Loved Ones! 🎥</h2>
+        <button id="videoBtn" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">Play Video</button>
+        <video id="videoMessage" class="hidden mt-6 mx-auto rounded-lg" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Memory Lane Section -->
+    <section class="max-w-5xl mx-auto my-10">
+        <h2 class="text-3xl font-semibold text-center mb-8">Memory Lane 📸</h2>
+        <div id="memorySlider" class="relative">
+            <div class="memory-slide">
+                <img src="https://via.placeholder.com/400?text=Memory1" alt="Memory 1" class="w-full h-64 object-cover rounded-lg">
+                <p class="text-center mt-4">Your 21st Birthday! 🎈</p>
+            </div>
+            <div class="memory-slide hidden">
+                <img src="https://via.placeholder.com/400?text=Memory2" alt="Memory 2" class="w-full h-64 object-cover rounded-lg">
+                <p class="text-center mt-4">That Trip with Friends! 🌴</p>
+            </div>
+            <div class="memory-slide hidden">
+                <img src="https://via.placeholder.com/400?text=Memory3" alt="Memory 3" class="w-full h-64 object-cover rounded-lg">
+                <p class="text-center mt-4">Family Picnic! 🧺</p>
+            </div>
+            <button id="prevMemory" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">❮</button>
+            <button id="nextMemory" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">❯</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
